@@ -1,100 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz App</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --primary: #54c3ef;
-        --secondary: #2b3252;
-        --accent: #fad744;
-      }
-      @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap");
-      body {
-        font-family: "Source Sans Pro", sans;
-      }
-      .font-heading {
-        font-family: "Caveat Brush Cursive", cursive;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      }
-      .bg-primary {
-        background-color: var(--primary);
-      }
-      .bg-secondary {
-        background-color: var(--secondary);
-      }
-      .text-accent {
-        color: var(--accent);
-      }
-      .vertical-center {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-      }
-      .quiz-container {
-        text-align: center;
-      }
-      .question-div {
-        position: relative;
-        padding-bottom: 1rem;
-      }
-      .question-div::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: var(--accent);
-      }
-      @media (min-width: 768px) {
-        .score-container {
-          position: fixed;
-          top: 5rem;
-          right: 1rem;
-        }
-      }
-      @media (max-width: 767px) {
-        .score-container {
-          position: relative;
-          margin: 1rem 0;
-        }
-      }
-    </style>
-  </head>
-  <body class="bg-primary font-body">
-    <div class="container mx-auto p-4">
-      <div class="vertical-center">
-        <h1 class="text-3xl font-heading text-accent mb-4">The Quiz App</h1>
-        <div class="score-container bg-white p-4 rounded-lg text-center">
-          <h2 class="text-2xl font-semibold mb-2">Score:</h2>
-          <p id="score" class="text-2xl font-bold">0/5</p>
-        </div>
-        <div
-          class="quiz-container bg-secondary text-accent p-4 rounded-lg shadow-lg relative"
-        >
-          <div class="questions-wrapper">
-            <div class="questions-container">
 
-            </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz App</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #f9fafb;
+      --accent: #facc15;
+    }
+
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      background-color: var(--primary);
+    }
+
+    .font-heading {
+      font-family: 'Caveat Brush', cursive;
+    }
+
+    .question-divider::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: var(--accent);
+      margin-top: 1rem;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&family=Caveat+Brush&display=swap');
+  </style>
+</head>
+
+<body class="text-gray-800">
+  <div class="min-h-screen flex flex-col justify-center items-center px-4 py-8">
+    <div class="w-full max-w-4xl">
+      <div class="bg-white rounded-2xl shadow-xl p-8">
+        <h1 class="text-4xl font-heading text-center text-yellow-400 mb-6 drop-shadow-lg">The Quiz App</h1>
+
+        <div class="flex justify-end mb-6">
+          <div class="bg-yellow-100 px-6 py-3 rounded-md shadow text-right">
+            <h2 class="text-lg font-semibold text-gray-700">Score</h2>
+            <p id="score" class="text-2xl font-bold text-yellow-600">0/30</p>
           </div>
-          <button
-            id="submit-button"
-            class="bg-accent text-secondary px-4 py-2 rounded-md hover:bg-yellow-400 hover:text-black transition duration-300 ease-in-out"
-          >
-            Submit
+        </div>
+
+        <div class="space-y-8" id="questions-container"></div>
+
+        <div class="mt-10 text-center">
+          <button id="submit-button"
+            class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold px-6 py-2 rounded-md transition duration-300 shadow-md">
+            Submit Quiz
           </button>
         </div>
       </div>
     </div>
-    <script src="./Script.js"></script>
-  </body>
+  </div>
+  <script src="./Script.js"></script>
+</body>
 </html>
